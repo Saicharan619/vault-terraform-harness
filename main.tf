@@ -1,3 +1,21 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 4.0"
+    }
+    vault = {
+      source  = "hashicorp/vault"
+      version = "~> 3.0"
+    }
+  }
+}
+
+provider "vault" {
+  address = var.vault_address
+  token   = var.vault_token
+}
+
 data "vault_generic_secret" "gcp_creds" {
   path = "secret/gcpcred"
 }
