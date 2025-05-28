@@ -1,5 +1,5 @@
 variable "gcp_creds" {
-  description = "Base64 encoded GCP service account key from Vault"
+  description = "GCP service account JSON credentials (base64 encoded)"
   type        = string
   sensitive   = true
 }
@@ -9,25 +9,13 @@ variable "project_id" {
   type        = string
 }
 
-variable "region" {
-  description = "GCP Region"
-  type        = string
-  default     = "us-central1"
-}
-
-variable "zone" {
-  description = "GCP Zone"
-  type        = string
-  default     = "us-central1-a"
-}
-
 variable "vault_address" {
-  description = "Vault address (VAULT_ADDR env)"
+  description = "Vault server address"
   type        = string
 }
 
 variable "vault_token" {
-  description = "Vault token (VAULT_TOKEN env)"
+  description = "Vault access token"
   type        = string
   sensitive   = true
 }
