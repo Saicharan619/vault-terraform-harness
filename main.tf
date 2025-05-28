@@ -1,6 +1,10 @@
+data "vault_generic_secret" "gcp_creds" {
+  path = "secret/gcpcred"
+}
+
 provider "google" {
-  credentials = var.gcp_creds
-  project     = var.project_id
+  credentials = base64decode(data.vault_generic_secret.gcp_creds.data["servicekey_base64"])
+  project     = data.vault_generic_secret.gcp_creds.data["project_id"]
   region      = var.region
   zone        = var.zone
 }
