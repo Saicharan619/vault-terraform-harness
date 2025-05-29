@@ -4,6 +4,7 @@ variable "gcp_creds" {
   sensitive   = true
 }
 
+
 variable "project_id" {
   description = "GCP Project ID"
   type        = string
