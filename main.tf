@@ -12,8 +12,8 @@ terraform {
 }
 
 provider "google" {
-  credentials = base64decode(var.gcp_creds)
-  project     = saicharan-457910
+  credentials = var.gcp_creds  # No base64decode unless encoded
+  project     = var.project_id
   region      = "us-central1"
   zone        = "us-central1-a"
 }
