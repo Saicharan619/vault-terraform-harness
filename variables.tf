@@ -7,7 +7,7 @@ variable "gcp_creds" {
 variable "project_id" {
   description = "GCP Project ID"
   type        = string
-  default = saicharan-457910
+  default = "saicharan-457910"
 }
 
 variable "vault_address" {
