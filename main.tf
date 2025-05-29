@@ -12,7 +12,7 @@ terraform {
 }
 
 provider "google" {
-   credentials = (var.gcp_creds)
+   credentials = var.gcp_creds
   project     = var.project_id
   region      = "us-central1"
   zone        = "us-central1-a"
