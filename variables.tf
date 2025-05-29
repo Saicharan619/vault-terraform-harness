@@ -1,8 +1,9 @@
 variable "gcp_creds" {
-  description = "GCP service account JSON credentials (base64 encoded)"
+  description = "GCP service account JSON credentials"
   type        = string
   sensitive   = true
 }
+
 
 
 variable "project_id" {
