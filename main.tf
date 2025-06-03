@@ -1,41 +1,25 @@
-terraform {
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 4.0"
-    }
-    vault = {
-      source  = "hashicorp/vault"
-      version = "~> 3.0"
-    }
-  }
-}
-
 provider "google" {
-  credentials = file("gcp.json")
-  project     = var.project_id
+  project     = "saicharan-457910"
   region      = "us-central1"
   zone        = "us-central1-a"
-}
-
-provider "vault" {
-  address = var.vault_address
-  token   = var.vault_token
+  credentials = file("gcp.json")
 }
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "harness-vm"
+  name         = "vault-instance"
   machine_type = "e2-micro"
   zone         = "us-central1-a"
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-11"
+      image = "debian-cloud/debian-12"
     }
   }
 
   network_interface {
-    network    = "default"
+    network       = "default"
     access_config {}
   }
+
+  tags = ["web"]
 }
